@@ -15,12 +15,25 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="@string/dialog2" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="@string/dialog3" />
+    
+     <Button
+         android:id="@+id/button4"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="@string/dialog4" />
+
+    <TextView
+        android:id="@+id/textViewMain"
+        android:layout_width="119dp"
+        android:layout_height="wrap_content"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
        
     </LinearLayout>

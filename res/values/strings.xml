@@ -6,5 +6,8 @@
     <string name="title_activity_main">TabHost</string>
     <string name="dialog1">Показать диалог 1</string>
     <string name="dialog1_title">Диалог 1</string>
+    <string name="dialog2">Показать диалог 2 с табами</string>
+    <string name="dialog3">Диалог с датой</string>
+    <string name="dialog4">Диалог со временем</string>
 
 </resources>
