@@ -20,7 +20,11 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.Toast;
 import android.widget.TabHost.TabSpec;
@@ -36,7 +40,7 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnItemSelectedListener {
 	public static MainActivity instance;
 	private Dialog myDialog;
 	final Context context = this;
@@ -44,6 +48,7 @@ public class MainActivity extends Activity {
 	TextView text;
 	DateFormat formatDateTime=DateFormat.getDateTimeInstance();
 	final Calendar dateTime=Calendar.getInstance();
+	public static String[] names = { "alpha", "bravo", "charlie", "delta", "eco"};
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 
@@ -194,6 +199,13 @@ public class MainActivity extends Activity {
 			}
 		});
 
+		Spinner spinner = (Spinner) findViewById(R.id.spinner1);
+//		ArrayAdapter<String> = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, names);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, names);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spinner.setOnItemSelectedListener(this);
+		// Apply the adapter to the spinner
+		spinner.setAdapter(adapter);
 
 		instance = this;
 	}
@@ -287,5 +299,20 @@ public void updateTitle() {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
+	}
+
+	@Override
+	public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
+			long arg3) {
+		// TODO Auto-generated method stub
+		Toast.makeText(getApplicationContext(), names[arg2], Toast.LENGTH_LONG).show();
+		Log.d("LOG", names[arg2]);
+		
+	}
+
+	@Override
+	public void onNothingSelected(AdapterView<?> arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }
